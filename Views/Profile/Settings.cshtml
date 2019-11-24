@@ -1,0 +1,61 @@
+@model CrossRef.Models.ViewModels.SettingsViewModel
+
+<h1>Personal information settings</h1>
+
+<div class="profile-settings-container">
+    @if (!ViewContext.ModelState.IsValid)
+    {
+        <div class="alert alert-danger">
+            <div asp-validation-summary="All"></div>
+        </div>
+    }
+    <form asp-controller="Profile" asp-action="Settings" method="post">
+
+        <div class="profile-settings-entry">
+            <label for="first-name">@Html.DisplayNameFor(m => m.FirstName)</label>
+            @Html.TextBoxFor(m => m.FirstName, new
+            {
+                id = "first-name",
+                @class = "form-control",
+                type = "text"
+            })
+        </div>
+
+        <div class="profile-settings-entry">
+            <label for="last-name">@Html.DisplayNameFor(m => m.LastName)</label>
+            @Html.TextBoxFor(m => m.LastName, new
+            {
+                id = "last-name",
+                @class = "form-control",
+                type = "text"
+            })
+        </div>
+
+        <div class="profile-settings-entry">
+            <label for="dob">@Html.DisplayNameFor(m => m.DateOfBirth)</label>
+            @Html.TextBoxFor(m => m.DateOfBirth, "{0:yyyy-MM-dd}", new
+            {
+                id = "dob",
+                @class = "form-control",
+                type = "date"
+            })
+        </div>
+
+        <div class="profile-settings-entry">
+            <label for="affiliation">@Html.DisplayNameFor(m => m.Affiliation)</label>
+            <input type="text" class="form-control" value="@Model.Affiliation"
+                   id="affiliation" name="affiliation" asp-for="Affiliation"/>
+        </div>
+
+        <div class="profile-settings-entry">
+            <label for="biography">@Html.DisplayNameFor(m => m.Biography)</label>
+            @Html.TextAreaFor(m => m.Biography, new
+            {
+                id = "biography",
+                @class = "form-control"
+            })
+        </div>
+
+        <button class="btn btn-primary btn-lg profile-settings-save-btn" type="submit">Save</button>
+    </form>
+</div>

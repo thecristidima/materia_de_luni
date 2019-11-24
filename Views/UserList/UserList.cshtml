@@ -1,0 +1,21 @@
+@model CrossRef.Models.ViewModels.UserListViewModel
+@{
+    var users = Model.Users.ToList();
+    users.Sort((a, b) => string.Compare(a.Item1, b.Item1, StringComparison.Ordinal));
+}
+
+@if (Model.WrongSearch)
+{
+    <div class="alert alert-danger">
+        <a>Your search returned no results. The researcher might not be registered or have not have addded any papers to his profile.</a>
+    </div>
+}
+
+<a>Registered researchers with published papers</a>
+<div class="authorList">
+    @foreach (var (name, id) in users)
+    {
+        <a asp-controller="Profile" asp-action="Overview" asp-route-id=@id>@name</a>
+        <br/>
+    }
+</div>

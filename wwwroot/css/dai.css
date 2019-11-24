@@ -1,0 +1,113 @@
+.form-container {
+    margin-top: 60px;
+}
+
+.form-label-group {
+    margin-top: 10px;
+}
+
+.login-input {
+    width: 200px;
+}
+
+.form-submit-btn {
+    margin-top: 15px;
+    width: 100px;
+}
+
+.profile-page-container {
+    margin-top: 45px;
+}
+
+.profile-page-container > h3 {
+    margin-top: 5px;
+}
+
+.profile-page-entry {
+    margin-top: 50px;
+}
+
+.permission-list-container {
+    margin-top: 75px;
+}
+
+.permission-entry {
+    margin-top: 25px;
+}
+
+.permission-entry-name-label {
+    font-size: 2em;
+    margin-left: 7px;
+}
+
+.permission-entry-description {
+    margin-left: 25px;
+}
+
+.permission-entry-description > a {
+    font-size: 1em;
+}
+
+.permission-save-btn {
+    margin-top: 45px;
+    margin-left: 25px;
+}
+
+.profile-settings-entry {
+    margin-top: 25px;
+}
+
+.profile-settings-entry > label {
+    font-weight: bold;
+}
+
+.profile-settings-container {
+    width: 350px;
+}
+
+.profile-settings-save-btn {
+    margin-top: 40px;
+}
+
+.article-count-container {
+    margin-top: 50px;
+}
+
+.article-chart-container {
+    margin-top: 20px;
+}
+
+.article-chart > div {
+    margin: 0 auto;
+}
+
+.article-count-container {
+    text-align: center;
+}
+
+.article-count-container > form {
+    margin-top: 5px;
+}
+
+.authorList {
+    height: 75%;
+    overflow-y: auto;
+    margin-top: 20px;
+}
+
+.search-bar-container {
+    margin-top: 200px;
+}
+
+.search-bar-container > form {
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.article-table-container {
+    width: 90%;
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
