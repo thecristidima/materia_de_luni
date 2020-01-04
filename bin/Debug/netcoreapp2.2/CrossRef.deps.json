@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.2",
-    "signature": "9769b9d02f2adbe4683e0564e8d68b44917efcc7"
+    "signature": "dcbee81009d7ac3504354171701ef822f6f82398"
   },
   "compilationOptions": {
     "defines": [
@@ -29,7 +29,8 @@
           "Microsoft.EntityFrameworkCore.Design": "2.2.4",
           "Microsoft.EntityFrameworkCore.Sqlite": "2.2.4",
           "Microsoft.NETCore.App": "2.2.0",
-          "Newtonsoft.Json": "12.0.2"
+          "Newtonsoft.Json": "12.0.2",
+          "OdeToCode.AddFeatureFolders": "2.0.3"
         },
         "runtime": {
           "CrossRef.dll": {}
@@ -318,6 +319,21 @@
         },
         "compile": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        }
+      },
+      "OdeToCode.AddFeatureFolders/2.0.3": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Mvc.Razor": "2.2.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "2.2.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/OdeToCode.AddFeatureFolders.dll": {
+            "assemblyVersion": "2.0.3.0",
+            "fileVersion": "2.0.3.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/OdeToCode.AddFeatureFolders.dll": {}
         }
       },
       "Remotion.Linq/2.2.0": {
@@ -3526,6 +3542,13 @@
       "sha512": "sha512-mtweBXPWhp1CMQATtBT7ZfMZrbZBTKfjGwz6Y75NwGjx/GztDaUnfw8GK9KZ2T4fDIqKJyDjc9Rxlw5+G2FcVA==",
       "path": "newtonsoft.json/12.0.2",
       "hashPath": "newtonsoft.json.12.0.2.nupkg.sha512"
+    },
+    "OdeToCode.AddFeatureFolders/2.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-4gtKrvi/L39sBSa9fyiL/fHvp7IH5I/Q25ujw8r0TgOpS++WDHlk6X0+FXhFvGvf751it5ujXpvnFa4dTsFmEg==",
+      "path": "odetocode.addfeaturefolders/2.0.3",
+      "hashPath": "odetocode.addfeaturefolders.2.0.3.nupkg.sha512"
     },
     "Remotion.Linq/2.2.0": {
       "type": "package",

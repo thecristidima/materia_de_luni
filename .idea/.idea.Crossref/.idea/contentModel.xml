@@ -6,23 +6,21 @@
       <e p="appsettings.Development.json" t="Include" />
       <e p="appsettings.json" t="Include" />
       <e p="bin" t="ExcludeRecursive" />
-      <e p="Controllers" t="Include">
-        <e p="AuthenticationController.cs" t="Include" />
-        <e p="HomeController.cs" t="Include" />
-        <e p="ProfileController.cs" t="Include" />
-        <e p="UserListController.cs" t="Include" />
+      <e p="Common" t="Include">
+        <e p="Data" t="Include">
+          <e p="CrossRefContext.cs" t="Include" />
+          <e p="Entities" t="Include">
+            <e p="Article.cs" t="Include" />
+            <e p="Permission.cs" t="Include" />
+            <e p="User.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Models" t="Include">
+          <e p="ErrorViewModel.cs" t="Include" />
+        </e>
       </e>
       <e p="CrossRef.csproj" t="IncludeRecursive" />
       <e p="CrossRef.sln" t="IncludeFlat" />
-      <e p="Data" t="Include">
-        <e p="CrossRefContext.cs" t="Include" />
-        <e p="Entities" t="Include">
-          <e p="Article.cs" t="Include" />
-          <e p="Permission.cs" t="Include" />
-          <e p="User.cs" t="Include" />
-        </e>
-      </e>
-      <e p="Helpers" t="Include" />
       <e p="Migrations" t="Include">
         <e p="20190429211851_InitialCreate.cs" t="Include" />
         <e p="20190429211851_InitialCreate.Designer.cs" t="Include" />
@@ -34,24 +32,11 @@
         <e p="20190430092613_aaa.Designer.cs" t="Include" />
         <e p="CrossRefContextModelSnapshot.cs" t="Include" />
       </e>
-      <e p="Models" t="Include">
-        <e p="CrossRefArticle.cs" t="Include" />
-        <e p="ErrorViewModel.cs" t="Include" />
-        <e p="ViewModels" t="Include">
-          <e p="ArticlesViewModel.cs" t="Include" />
-          <e p="LoginViewModel.cs" t="Include" />
-          <e p="PermissionsViewModel.cs" t="Include" />
-          <e p="ProfileViewModel.cs" t="Include" />
-          <e p="RegisterViewModel.cs" t="Include" />
-          <e p="SearchViewModel.cs" t="Include" />
-          <e p="SettingsViewModel.cs" t="Include" />
-          <e p="UserListViewModel.cs" t="Include" />
-        </e>
-      </e>
       <e p="obj" t="ExcludeRecursive">
         <e p="Debug" t="Include">
           <e p="netcoreapp2.2" t="Include">
             <e p="CrossRef.AssemblyInfo.cs" t="Include" />
+            <e p="CrossRef.RazorAssemblyInfo.cs" t="Include" />
           </e>
         </e>
       </e>
@@ -60,13 +45,33 @@
       <e p="Properties" t="Include">
         <e p="launchSettings.json" t="Include" />
       </e>
-      <e p="Requests" t="Include">
-        <e p="IRequest.cs" t="Include" />
-        <e p="LoginRequest.cs" t="Include" />
-        <e p="RegisterRequest.cs" t="Include" />
-      </e>
       <e p="Services" t="Include">
-        <e p="CrossRefService.cs" t="Include" />
+        <e p="ArticleFetch" t="Include">
+          <e p="ArticleFetchController.cs" t="Include" />
+          <e p="ArticleFetchService.cs" t="Include" />
+          <e p="CrossRefArticle.cs" t="Include" />
+        </e>
+        <e p="DataVisualisation" t="Include">
+          <e p="HomeController.cs" t="Include" />
+          <e p="ProfileController.cs" t="Include" />
+          <e p="UserListController.cs" t="Include" />
+          <e p="ViewModels" t="Include">
+            <e p="ArticlesViewModel.cs" t="Include" />
+            <e p="PermissionsViewModel.cs" t="Include" />
+            <e p="ProfileViewModel.cs" t="Include" />
+            <e p="SearchViewModel.cs" t="Include" />
+            <e p="SettingsViewModel.cs" t="Include" />
+            <e p="UserListViewModel.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Permissions" t="Include">
+          <e p="PermissionsController.cs" t="Include" />
+        </e>
+        <e p="Register" t="Include">
+          <e p="AuthenticationController.cs" t="Include" />
+          <e p="LoginViewModel.cs" t="Include" />
+          <e p="RegisterViewModel.cs" t="Include" />
+        </e>
       </e>
       <e p="Startup.cs" t="Include" />
       <e p="Views" t="Include">
@@ -81,10 +86,12 @@
           <e p="Index.cshtml" t="Include" />
           <e p="Privacy.cshtml" t="Include" />
         </e>
+        <e p="Permissions" t="Include">
+          <e p="Permissions.cshtml" t="Include" />
+        </e>
         <e p="Profile" t="Include">
           <e p="Articles.cshtml" t="Include" />
           <e p="Overview.cshtml" t="Include" />
-          <e p="Permissions.cshtml" t="Include" />
           <e p="Settings.cshtml" t="Include" />
         </e>
         <e p="Shared" t="Include">
@@ -161,8 +168,8 @@
         </e>
       </e>
     </e>
-    <e p="$USER_HOME$/Library/Caches/Rider2018.3/extResources" t="IncludeRecursive" />
-    <e p="$USER_HOME$/Library/Caches/Rider2018.3/resharper-host/local/Transient/ReSharperHost/v183/SolutionCaches/_CrossRef.-51017443.00" t="ExcludeRecursive" />
+    <e p="$USER_HOME$/Library/Caches/Rider2019.3/extResources" t="IncludeRecursive" />
+    <e p="$USER_HOME$/Library/Caches/Rider2019.3/resharper-host/local/Transient/ReSharperHost/v193/SolutionCaches/_CrossRef.-1947128207.00" t="ExcludeRecursive" />
     <e p="$APPLICATION_CONFIG_DIR$/consoles/db" t="IncludeRecursive" />
     <e p="$APPLICATION_CONFIG_DIR$/extensions" t="IncludeRecursive" />
   </component>

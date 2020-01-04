@@ -1,10 +1,10 @@
 ﻿{
   "version": "1.0.0",
   "restore": {
-    "projectUniqueName": "/Users/cristidima/Documents/GitHub/Random/Politehnica/Master/DAI/Crossref/CrossRef.csproj",
+    "projectUniqueName": "/Users/cristidima/Documents/GitHub/materia_de_luni/CrossRef.csproj",
     "projectName": "CrossRef",
-    "projectPath": "/Users/cristidima/Documents/GitHub/Random/Politehnica/Master/DAI/Crossref/CrossRef.csproj",
-    "outputPath": "/Users/cristidima/Documents/GitHub/Random/Politehnica/Master/DAI/Crossref/obj/",
+    "projectPath": "/Users/cristidima/Documents/GitHub/materia_de_luni/CrossRef.csproj",
+    "outputPath": "/Users/cristidima/Documents/GitHub/materia_de_luni/obj/",
     "projectStyle": "PackageReference",
     "fallbackFolders": [
       "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
@@ -12,6 +12,9 @@
     "originalTargetFrameworks": [
       "netcoreapp2.2"
     ],
+    "sources": {
+      "https://api.nuget.org/v3/index.json": {}
+    },
     "frameworks": {
       "netcoreapp2.2": {
         "projectReferences": {}
@@ -54,6 +57,10 @@
         "Newtonsoft.Json": {
           "target": "Package",
           "version": "[12.0.2, )"
+        },
+        "OdeToCode.AddFeatureFolders": {
+          "target": "Package",
+          "version": "[2.0.3, )"
         }
       },
       "imports": [

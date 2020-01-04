@@ -1,4 +1,4 @@
-@model CrossRef.Models.ViewModels.UserListViewModel
+@model CrossRef.Services.DataVisualisation.ViewModels.UserListViewModel
 @{
     var users = Model.Users.ToList();
     users.Sort((a, b) => string.Compare(a.Item1, b.Item1, StringComparison.Ordinal));

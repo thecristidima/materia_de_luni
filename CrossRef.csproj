@@ -12,11 +12,32 @@
         <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.2.4" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="2.2.4" />
         <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+        <PackageReference Include="OdeToCode.AddFeatureFolders" Version="2.0.3" />
     </ItemGroup>
 
 
     <ItemGroup>
-        <Folder Include="Helpers" />
+        <Folder Include="Common" />
+    </ItemGroup>
+
+
+    <ItemGroup>
+        <_ContentIncludedByDefault Remove="Features\DataVisualisation\Views\Home\Index.cshtml" />
+        <_ContentIncludedByDefault Remove="Views\Home\Index.cshtml" />
+        <_ContentIncludedByDefault Remove="Views\Home\Privacy.cshtml" />
+        <_ContentIncludedByDefault Remove="Views\UserList\UserList.cshtml" />
+        <_ContentIncludedByDefault Remove="Views\Error.cshtml" />
+        <_ContentIncludedByDefault Remove="Views\_CookieConsentPartial.cshtml" />
+        <_ContentIncludedByDefault Remove="Views\_Layout.cshtml" />
+        <_ContentIncludedByDefault Remove="Views\_ValidationScriptsPartial.cshtml" />
+        <_ContentIncludedByDefault Remove="Views\_ViewImports.cshtml" />
+        <_ContentIncludedByDefault Remove="Views\_ViewStart.cshtml" />
+        <_ContentIncludedByDefault Remove="Common\Views\Error.cshtml" />
+        <_ContentIncludedByDefault Remove="Common\Views\Shared\_CookieConsentPartial.cshtml" />
+        <_ContentIncludedByDefault Remove="Common\Views\Shared\_Layout.cshtml" />
+        <_ContentIncludedByDefault Remove="Common\Views\Shared\_ValidationScriptsPartial.cshtml" />
+        <_ContentIncludedByDefault Remove="Common\Views\Shared\_ViewImports.cshtml" />
+        <_ContentIncludedByDefault Remove="Common\Views\_ViewStart.cshtml" />
     </ItemGroup>
 
 </Project>

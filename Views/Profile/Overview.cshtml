@@ -1,5 +1,5 @@
 @using Newtonsoft.Json
-@model CrossRef.Models.ViewModels.ProfileViewModel
+@model CrossRef.Services.DataVisualisation.ViewModels.ProfileViewModel
 @{
     var data = "";
     if (Model != null && Model.Articles != null && Model.Articles.Count > 0)
@@ -20,7 +20,7 @@
     <br/>
     <a asp-controller="Profile" asp-action="Settings">Change personal information</a>
     <br/>
-    <a asp-controller="Profile" asp-action="Permissions">Choose what information to display on your profile page</a>
+    <a asp-controller="Permissions" asp-action="Permissions">Choose what information to display on your profile page</a>
     <br/>
     <a asp-controller="Profile" asp-action="Articles">View your published articles from Crossref</a>
 }
@@ -39,13 +39,13 @@ else // We're on someone else's profile page
             else
             {
                 if (string.IsNullOrEmpty(Model.Biography))
-                 {
-                     <i>This user hasn't added their biography yet.</i>
-                 }
-                 else
-                 {
-                     <a>@Model.Biography</a>
-                 }
+                {
+                    <i>This user hasn't added their biography yet.</i>
+                }
+                else
+                {
+                    <a>@Model.Biography</a>
+                }
             }
         </div>
 
@@ -90,29 +90,29 @@ else // We're on someone else's profile page
                 </div>
             </div>
             if (Model.Articles.Count > 0)
-             {
-                 <div class="article-table-container">
-                     <table id="article-table" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
-                         <thead>
-                         <th class="th-sm">Title</th>
-                         <th class="th-sm">Publication year</th>
-                         <th class="th-sm">DOI</th>
-                         </thead>
-                         <tbody>
-                         @foreach (var article in Model.Articles)
-                         {
-                             <tr>
-                                 <td>@article.Title</td>
-                                 <td>@article.YearOfPublication</td>
-                                 <td>
-                                     <a href="https://www.doi.org/@article.DOI">@article.DOI</a>
-                                 </td>
-                             </tr>
-                         }
-                         </tbody>
-                     </table>
-                 </div>
-             }
+            {
+                <div class="article-table-container">
+                    <table id="article-table" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+                        <thead>
+                        <th class="th-sm">Title</th>
+                        <th class="th-sm">Publication year</th>
+                        <th class="th-sm">DOI</th>
+                        </thead>
+                        <tbody>
+                        @foreach (var article in Model.Articles)
+                        {
+                            <tr>
+                                <td>@article.Title</td>
+                                <td>@article.YearOfPublication</td>
+                                <td>
+                                    <a href="https://www.doi.org/@article.DOI">@article.DOI</a>
+                                </td>
+                            </tr>
+                        }
+                        </tbody>
+                    </table>
+                </div>
+            }
         }
     </div>
 }

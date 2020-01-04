@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="app [2]">
-  <database-model serializer="dbm" dbms="SQLITE" family-id="SQLITE" format-version="4.14">
+  <database-model serializer="dbm" dbms="SQLITE" family-id="SQLITE" format-version="4.17">
     <root id="1">
       <ServerVersion>3.25.1</ServerVersion>
     </root>
     <schema id="2" parent="1" name="main">
       <Current>1</Current>
-      <Visible>1</Visible>
     </schema>
     <collation id="3" parent="1" name="BINARY"/>
     <collation id="4" parent="1" name="NOCASE"/>
@@ -41,12 +40,10 @@
       <NameSurrogate>1</NameSurrogate>
       <ColNames>UserId
 ArticleId</ColNames>
-      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <index id="17" parent="6" name="IX_ArticleAuthors_ArticleId">
       <ColNames>ArticleId</ColNames>
-      <ColumnCollations></ColumnCollations>
     </index>
     <key id="18" parent="6" name="PK_ArticleAuthors">
       <ColNames>UserId
@@ -124,7 +121,6 @@ ArticleId</ColNames>
     </column>
     <index id="32" parent="8" name="IX_Permissions_AuthorId">
       <ColNames>AuthorId</ColNames>
-      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <key id="33" parent="8" name="PK_Permissions">
@@ -195,7 +191,6 @@ ArticleId</ColNames>
     <index id="47" parent="10" name="sqlite_autoindex___EFMigrationsHistory_1">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>MigrationId</ColNames>
-      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <key id="48" parent="10" name="PK___EFMigrationsHistory">
