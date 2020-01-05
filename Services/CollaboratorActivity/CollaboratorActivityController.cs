@@ -16,8 +16,10 @@ namespace CrossRef.Services.CollaboratorActivity
     public class CollaboratorActivityController : Controller
     {
 
-        public async Task OnGetAsync(CollaboratorActivityViewModel collaboratorActivityViewModel)
+        [HttpGet("CollaboratorActivity")]
+        public async Task<IActionResult> CollaboratorActivity(CollaboratorActivityViewModel collaboratorActivityViewModel)
         {
+            if (collaboratorActivityViewModel.searchString == null) collaboratorActivityViewModel.searchString = "";
             collaboratorActivityViewModel.CurrentFilter = collaboratorActivityViewModel.searchString;
 
             List<int> collaboratorsIds = GetCollaboratorsIds();
@@ -32,7 +34,7 @@ namespace CrossRef.Services.CollaboratorActivity
                         .Select(x => x.Id)
                         .ToList();
 
-                    List<Article> publications = await _context.Articles
+                    List<Article> publications = await _context.Articles.Include(x => x.ArticleAuthors).ThenInclude(x => x.User)
                         .Where(x => x.ArticleAuthors.Select(y => y.UserId).Intersect(collaboratorsIds).Any()
                             && x.ArticleAuthors.Select(y => y.UserId).Intersect(searchedUsersIds).Any())
                         .OrderByDescending(x => x.Published)
@@ -43,27 +45,45 @@ namespace CrossRef.Services.CollaboratorActivity
                     List<CollaboratorsPublicationViewModel> collaboratorsPublications = new List<CollaboratorsPublicationViewModel>();
                     foreach (Article publication in publications)
                     {
-                        string authorsNames = String.Join(String.Empty, publication.ArticleAuthors.Select(x => x.User.FirstName + " " + x.User.LastName));
+                        string authorsNames = "";
+                        var authors = publication?.ArticleAuthors?.Select(x => x.User.FirstName + " " + x.User.LastName + " ");
+                        if (authors != null)
+                        {
+                            authorsNames = String.Join(String.Empty, authors);
+                        }
+                        var author = users
+                            .FirstOrDefault(x => publication.ArticleAuthors.Select(y => y.UserId).Contains(x.Id) &&
+                            (x.FirstName + " " + x.LastName).ToUpper().Contains(collaboratorActivityViewModel.searchString.ToUpper()));
+                        string authorName = author?.FirstName + " " + author.LastName;
                         CollaboratorsPublicationViewModel pub = new CollaboratorsPublicationViewModel()
                         {
                             Title = publication.Title,
                             Published = publication.Published,
-                            //AuthorName = users.FirstOrDefault(x => x.Id == publication.AuthorId)?.UserName,
+                            AuthorName = authorName,
                             AuthorsNames = authorsNames,
                             Url = publication.Url,
-                            Type = publication.Type
+                            Type = publication.Type,
+                            Year = publication.YearOfPublication
                         };
                         collaboratorsPublications.Add(pub);
                     }
 
-                    //Publications = collaboratorsPublications;
-                    //Count = _context.Publications.Where(x => collaboratorsIds.Contains(x.AuthorId) && searchedUsersIds.Contains(x.AuthorId)).Count();
+                    CollaboratorActivityViewModel collaboratorViewModel = new CollaboratorActivityViewModel()
+                    {
+                        Publications = collaboratorsPublications,
+                        Count = collaboratorsPublications.Count()
+                    };
+                    return View(collaboratorViewModel);
                 }
             }
             else
             {
-                //Publications = new List<CollaboratorsPublicationViewModel>();
-                //Count = 0;
+                CollaboratorActivityViewModel collaboratorViewModel = new CollaboratorActivityViewModel()
+                {
+                    Publications = new List<CollaboratorsPublicationViewModel>(),
+                    Count = 0
+                };
+                return View(collaboratorViewModel);
             }
         }
 

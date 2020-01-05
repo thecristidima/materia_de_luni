@@ -14,6 +14,7 @@ namespace CrossRef.Services.CollaboratorActivity.ViewModels
         public string Type { get; set; }
         public string AuthorsNames { get; set; }
         public string Url { get; set; }
+        public int Year { get; set; }
     }
 
     public class CollaboratorActivityViewModel
