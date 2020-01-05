@@ -1,0 +1,15 @@
+﻿@model CrossRef.Services.ArticleAdd.ViewModels.ArticleViewModel
+<h2>Add New Article</h2>
+
+<div asp-validation-summary="All"></div>
+<form asp-controller="ArticleAdd" asp-action="AddArticle" method="POST">
+    <div class="form-group" style="width:50%"><label>Title:</label> <input class="form-control" asp-for="Title" /></div>
+    <div class="input-group date" style="width:50%"><label>Published date:</label> <input class="form-control" type="date" asp-for="PublishedTime" /></div>
+    <div class="form-group" style="width:50%">
+        <label>Collaborator:</label>
+        <select class="form-control selectpicker" multiple="multiple" asp-for="@Model.SelectedUserIds" asp-items="@Model.Users">
+            <option>Please select collaborators</option>
+        </select>
+    </div>
+    <input type="submit" class="btn btn-success" />
+</form>

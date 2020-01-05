@@ -1,0 +1,69 @@
+﻿@page
+@model CrossRef.Services.CollaboratorActivity.ViewModels.CollaboratorActivityViewModel
+@{
+    ViewData["Title"] = "Collaborators Activity";
+}
+<h2>@ViewData["Title"]</h2>
+<environment names="Development">
+    <link href="@Url.Content("~/css/myArticles.css")" rel="stylesheet" type="text/css" />
+</environment>
+
+<form asp-page="./CollaboratorsActivity" method="get">
+    <div class="form-actions no-color">
+        <p>
+            <label class="col-md-3">Find activity by collaborator name: </label>
+            <div class="col-md-6">
+                <input class="form-control" type="text" name="SearchString" value="@Model.CurrentFilter" />
+            </div>
+            <div class="col-md-1" style="float:left">
+                <input type="submit" value="Search" class="btn btn-success" />
+            </div>
+        </p>
+    </div>
+</form>
+<br />
+<br />
+<br />
+
+<table class="table table-striped">
+    <tr>
+        <th><b>Title</b></th>
+        <th><b>Publication date</b></th>
+        <th><b>Author Name</b></th>
+    </tr>
+    @foreach (var item in Model.Publications)
+    {
+        <tr>
+            <td class="CellWithComment">
+                @item.Title
+                <div class="CellComment">
+                    <h6><b>@item.Title</b></h6>
+                    Type: @item.Type<br />
+                    Publicated on: @item.Published?.ToString("MMMM, yyyy")<br />
+                    Authors: @item.AuthorsNames<br />
+                    <a href="@item.Url">See publication</a>
+                </div>
+            </td>
+            <td>@item.Published?.ToString("MMMM, yyyy")</td>
+            <td>@item.AuthorName</td>
+        </tr>
+    }
+</table>
+<div style="text-align: center">
+    <ul class="pagination">
+        <li class="page-item @(!Model.ShowFirst? "disabled":"")">
+            <a asp-page="/CollaboratorsActivity" asp-route-CurrentPage="1" class="page-link"><i class="glyphicon glyphicon-step-backward"></i></a>
+        </li>
+
+        <li class="page-item @(!Model.ShowPrevious? "disabled":"")">
+            <a asp-page="/CollaboratorsActivity" asp-route-CurrentPage="@(Model.CurrentPage -1)" class="page-link"><i class="glyphicon glyphicon-chevron-left"></i></a>
+        </li>
+        <li class="page-item  @(!Model.ShowNext? "disabled":"")">
+            <a asp-page="/CollaboratorsActivity" asp-route-CurrentPage="@(Model.CurrentPage + 1)" class="page-link"><i class="glyphicon glyphicon-chevron-right"></i></a>
+        </li>
+
+        <li class="page-item  @(!Model.ShowLast? "disabled":"")">
+            <a asp-page="/CollaboratorsActivity" asp-route-CurrentPage="@Model.TotalPages" class="page-link"><i class="glyphicon glyphicon-step-forward"></i></a>
+        </li>
+    </ul>
+</div>

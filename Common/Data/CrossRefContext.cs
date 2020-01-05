@@ -7,7 +7,9 @@ namespace CrossRef.Common.Data
 	{
 		public DbSet<User> Users { get; set; }
 		public DbSet<Article> Articles { get; set; }
-		public DbSet<Permission> Permissions { get; set; }
+        public DbSet<ArticleAuthors> ArticleAuthors { get; set; }
+        public DbSet<Collaborator> Collaborators { get; set; }
+        public DbSet<Permission> Permissions { get; set; }
 
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{

@@ -14,16 +14,22 @@ namespace CrossRef.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.2.4-servicing-10062");
+                .HasAnnotation("ProductVersion", "2.2.6-servicing-10079");
 
-            modelBuilder.Entity("CrossRef.Data.Entities.Article", b =>
+            modelBuilder.Entity("CrossRef.Common.Data.Entities.Article", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("DOI");
 
+                    b.Property<DateTime?>("Published");
+
                     b.Property<string>("Title");
+
+                    b.Property<string>("Type");
+
+                    b.Property<string>("Url");
 
                     b.Property<int>("YearOfPublication");
 
@@ -32,7 +38,7 @@ namespace CrossRef.Migrations
                     b.ToTable("Articles");
                 });
 
-            modelBuilder.Entity("CrossRef.Data.Entities.ArticleAuthors", b =>
+            modelBuilder.Entity("CrossRef.Common.Data.Entities.ArticleAuthors", b =>
                 {
                     b.Property<int>("UserId");
 
@@ -47,7 +53,29 @@ namespace CrossRef.Migrations
                     b.ToTable("ArticleAuthors");
                 });
 
-            modelBuilder.Entity("CrossRef.Data.Entities.Permission", b =>
+            modelBuilder.Entity("CrossRef.Common.Data.Entities.Collaborator", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("AuthorId");
+
+                    b.Property<int?>("AuthorUserId");
+
+                    b.Property<int>("CollaboratorId");
+
+                    b.Property<int?>("CollaboratorUserId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AuthorUserId");
+
+                    b.HasIndex("CollaboratorUserId");
+
+                    b.ToTable("Collaborators");
+                });
+
+            modelBuilder.Entity("CrossRef.Common.Data.Entities.Permission", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
@@ -70,7 +98,7 @@ namespace CrossRef.Migrations
                     b.ToTable("Permissions");
                 });
 
-            modelBuilder.Entity("CrossRef.Data.Entities.User", b =>
+            modelBuilder.Entity("CrossRef.Common.Data.Entities.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
@@ -96,24 +124,35 @@ namespace CrossRef.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("CrossRef.Data.Entities.ArticleAuthors", b =>
+            modelBuilder.Entity("CrossRef.Common.Data.Entities.ArticleAuthors", b =>
                 {
-                    b.HasOne("CrossRef.Data.Entities.Article", "Article")
+                    b.HasOne("CrossRef.Common.Data.Entities.Article", "Article")
                         .WithMany("ArticleAuthors")
                         .HasForeignKey("ArticleId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("CrossRef.Data.Entities.User", "User")
+                    b.HasOne("CrossRef.Common.Data.Entities.User", "User")
                         .WithMany("ArticleAuthors")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("CrossRef.Data.Entities.Permission", b =>
+            modelBuilder.Entity("CrossRef.Common.Data.Entities.Collaborator", b =>
                 {
-                    b.HasOne("CrossRef.Data.Entities.User", "Author")
+                    b.HasOne("CrossRef.Common.Data.Entities.User", "AuthorUser")
+                        .WithMany()
+                        .HasForeignKey("AuthorUserId");
+
+                    b.HasOne("CrossRef.Common.Data.Entities.User", "CollaboratorUser")
+                        .WithMany()
+                        .HasForeignKey("CollaboratorUserId");
+                });
+
+            modelBuilder.Entity("CrossRef.Common.Data.Entities.Permission", b =>
+                {
+                    b.HasOne("CrossRef.Common.Data.Entities.User", "Author")
                         .WithOne("Permission")
-                        .HasForeignKey("CrossRef.Data.Entities.Permission", "AuthorId")
+                        .HasForeignKey("CrossRef.Common.Data.Entities.Permission", "AuthorId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
